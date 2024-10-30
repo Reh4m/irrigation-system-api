@@ -1,4 +1,4 @@
-import { Server } from "./app";
+import { Server } from "@/app";
 
 const server = new Server();
 

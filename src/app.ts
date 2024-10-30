@@ -3,8 +3,8 @@ import "reflect-metadata";
 import express, { Express } from "express";
 import cors from "cors";
 
-import { dbConnection } from "./database";
-import { PORT } from "./config";
+import { dbConnection } from "@database";
+import { PORT } from "@config";
 
 export class Server {
   private app: Express;

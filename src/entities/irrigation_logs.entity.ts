@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 
-import { Plant } from "./plant.entity";
+import { Plant } from "@entities/plant.entity";
 
 @Entity()
 export class IrrigationHistory {
