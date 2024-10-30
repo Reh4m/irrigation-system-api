@@ -27,7 +27,7 @@ export class Plant extends BaseEntity {
   location: string;
 
   @Column()
-  planting_date: Date;
+  plantingDate: Date;
 
   @Column({
     type: "enum",
