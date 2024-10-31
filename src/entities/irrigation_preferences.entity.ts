@@ -6,6 +6,7 @@ import {
   OneToOne,
   CreateDateColumn,
   UpdateDateColumn,
+  BaseEntity,
 } from "typeorm";
 
 import { Plant } from "@entities/plant.entity";
@@ -13,7 +14,7 @@ import { Plant } from "@entities/plant.entity";
 export type FrequencyUnit = "hours" | "days";
 
 @Entity()
-export class IrrigationPreferences {
+export class IrrigationPreferences extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

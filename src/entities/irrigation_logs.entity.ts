@@ -6,12 +6,13 @@ import {
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BaseEntity,
 } from "typeorm";
 
 import { Plant } from "@entities/plant.entity";
 
 @Entity()
-export class IrrigationHistory {
+export class IrrigationHistory extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
