@@ -16,11 +16,11 @@ export class PlantController {
     try {
       const plantData: IPlant = req.body;
 
-      const createPlantData: IPlant = await this.plant.createPlant(plantData);
+      const newPlant: IPlant = await this.plant.createPlant(plantData);
 
       res
         .status(201)
-        .json({ data: createPlantData, message: "Plant created succesfully" });
+        .json({ data: newPlant, message: "Plant created succesfully" });
     } catch (error) {
       next(error);
     }
@@ -32,9 +32,9 @@ export class PlantController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const findAllPlantsData: IPlant[] = await this.plant.findAllPlants();
+      const plants: IPlant[] = await this.plant.findAllPlants();
 
-      res.status(200).json({ data: findAllPlantsData });
+      res.status(200).json({ data: plants });
     } catch (error) {
       next(error);
     }
@@ -48,9 +48,9 @@ export class PlantController {
     try {
       const plantId = Number(req.params.id);
 
-      const findOnePlantData: IPlant = await this.plant.findPlantById(plantId);
+      const plant: IPlant = await this.plant.findPlantById(plantId);
 
-      res.status(200).json({ findOnePlantData });
+      res.status(200).json({ plant });
     } catch (error) {
       next(error);
     }
@@ -65,14 +65,14 @@ export class PlantController {
       const plantId = Number(req.params.id);
       const plantData: IPlant = req.body;
 
-      const updatedPlantData: IPlant | null = await this.plant.updatePlant(
+      const updatedPlant: IPlant | null = await this.plant.updatePlant(
         plantId,
         plantData
       );
 
       res
         .status(200)
-        .json({ data: updatedPlantData, message: "Plant updated succesfully" });
+        .json({ data: updatedPlant, message: "Plant updated succesfully" });
     } catch (error) {
       next(error);
     }
@@ -87,11 +87,13 @@ export class PlantController {
       const plantId = Number(req.params.id);
       const plantStatus: Status = req.body;
 
-      const updatedPlantData: IPlant | null =
-        await this.plant.updatePlantStatus(plantId, plantStatus);
+      const updatedPlant: IPlant | null = await this.plant.updatePlantStatus(
+        plantId,
+        plantStatus
+      );
 
       res.status(200).json({
-        data: updatedPlantData,
+        data: updatedPlant,
         message: "Plant status updated succesfully",
       });
     } catch (error) {
@@ -107,10 +109,10 @@ export class PlantController {
     try {
       const plantId = Number(req.params.id);
 
-      const deletedPlantData: IPlant = await this.plant.deletePlant(plantId);
+      const deletedPlant: IPlant = await this.plant.deletePlant(plantId);
 
       res.status(200).json({
-        data: deletedPlantData,
+        data: deletedPlant,
         message: "Plant deleted succesfully",
       });
     } catch (error) {

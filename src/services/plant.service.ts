@@ -13,13 +13,13 @@ export class PlantService extends Repository<Plant> {
   }
 
   public async findPlantById(plantId: number): Promise<IPlant> {
-    const findPlant: IPlant | null = await Plant.findOne({
+    const plant: IPlant | null = await Plant.findOne({
       where: { id: plantId },
     });
 
-    if (!findPlant) throw new Error("Error 409: Plant doesn't exist");
+    if (!plant) throw new Error("Error 409: Plant doesn't exist");
 
-    return findPlant;
+    return plant;
   }
 
   public async createPlant(plantData: IPlant): Promise<IPlant> {
