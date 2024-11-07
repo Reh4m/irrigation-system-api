@@ -12,7 +12,7 @@ import {
 import { Plant } from "@entities/plant.entity";
 
 @Entity()
-export class IrrigationHistory extends BaseEntity {
+export class IrrigationLogs extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
