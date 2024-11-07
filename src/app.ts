@@ -2,6 +2,8 @@ import "reflect-metadata";
 
 import express, { Express } from "express";
 import cors from "cors";
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUI from "swagger-ui-express";
 
 import { dbConnection } from "@database";
 import { PORT } from "@config";
@@ -19,6 +21,7 @@ export class Server {
     this.config();
     this.routes();
     this.database();
+    this.swagger();
   }
 
   private routes(): void {
@@ -28,7 +31,7 @@ export class Server {
       new IrrigationPreferencesRoutes().router
     );
     this.app.use("/api/moisture-logs", new MoistureLogsRoutes().router);
-    this.app.use("/api/plant", new PlantRoutes().router);
+    this.app.use("/api/plants", new PlantRoutes().router);
   }
 
   private config(): void {
@@ -49,6 +52,27 @@ export class Server {
       .catch(({ sqlMessage }) => {
         console.error(`SQL Error: ${sqlMessage}`);
       });
+  }
+
+  public swagger(): void {
+    const options = {
+      failOnErrors: true,
+      definition: {
+        openapi: "3.0.0",
+        info: {
+          title: "Irrigation System API",
+          version: "1.0.0",
+        },
+      },
+      apis: ["swagger.yaml"],
+    };
+
+    const openapiSpecification = swaggerJsdoc(options);
+    this.app.use(
+      "/api-docs",
+      swaggerUI.serve,
+      swaggerUI.setup(openapiSpecification)
+    );
   }
 
   public start(): void {
