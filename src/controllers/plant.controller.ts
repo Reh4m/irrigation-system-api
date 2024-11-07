@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import Container from "typedi";
+import { Container } from "typedi";
 
 import { Status } from "@entities/plant.entity";
 import { IPlant } from "@interfaces/plant.interface";
@@ -8,11 +8,11 @@ import { PlantService } from "@services/plant.service";
 export class PlantController {
   public plant = Container.get(PlantService);
 
-  public async createPlant(
+  public createPlant = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plantData: IPlant = req.body;
 
@@ -24,13 +24,13 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getPlants(
+  public getPlants = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plants: IPlant[] = await this.plant.findAllPlants();
 
@@ -38,13 +38,13 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getPlantById(
+  public getPlantById = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plantId = Number(req.params.id);
 
@@ -54,13 +54,13 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async updatePlant(
+  public updatePlant = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plantId = Number(req.params.id);
       const plantData: IPlant = req.body;
@@ -76,13 +76,13 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async updatePlantStatus(
+  public updatePlantStatus = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plantId = Number(req.params.id);
       const plantStatus: Status = req.body;
@@ -99,13 +99,13 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async deletePlant(
+  public deletePlant = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const plantId = Number(req.params.id);
 
@@ -118,5 +118,5 @@ export class PlantController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }

@@ -1,16 +1,17 @@
-import { IMoistureLogs } from "@/interfaces/moisture_logs.interface";
-import { MoistureLogsService } from "@services/moisture_logs.service";
 import { NextFunction, Request, Response } from "express";
 import { Container } from "typedi";
+
+import { IMoistureLogs } from "@interfaces/moisture_logs.interface";
+import { MoistureLogsService } from "@services/moisture_logs.service";
 
 export class MoistureLogsController {
   public moistureLogs = Container.get(MoistureLogsService);
 
-  public async createLog(
+  public createLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logData: IMoistureLogs = req.body;
 
@@ -23,13 +24,13 @@ export class MoistureLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getLogs(
+  public getLogs = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logs: IMoistureLogs[] = await this.moistureLogs.findAllLogs();
 
@@ -37,13 +38,13 @@ export class MoistureLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getLogById(
+  public getLogById = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
 
@@ -53,13 +54,13 @@ export class MoistureLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async updateLog(
+  public updateLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
       const logData: IMoistureLogs = req.body;
@@ -74,13 +75,13 @@ export class MoistureLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async deleteLog(
+  public deleteLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
 
@@ -95,5 +96,5 @@ export class MoistureLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }

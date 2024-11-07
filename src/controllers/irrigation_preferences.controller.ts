@@ -7,11 +7,11 @@ import { IrrigationPreferencesService } from "@services/irrigation_preferences.s
 export class IrrigationPreferencesController {
   public irrigationPreferences = Container.get(IrrigationPreferencesService);
 
-  public async createPreference(
+  public createPreference = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const preferenceData: IIrrigationPreferences = req.body;
 
@@ -25,13 +25,13 @@ export class IrrigationPreferencesController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getPreferences(
+  public getPreferences = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const preferences: IIrrigationPreferences[] =
         await this.irrigationPreferences.findAllPreferences();
@@ -40,13 +40,13 @@ export class IrrigationPreferencesController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getPreferenceById(
+  public getPreferenceById = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const preferenceId = Number(req.params.id);
 
@@ -57,13 +57,13 @@ export class IrrigationPreferencesController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async updatePreference(
+  public updatePreference = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const preferenceId = Number(req.params.id);
       const preferenceData: IIrrigationPreferences = req.body;
@@ -81,13 +81,13 @@ export class IrrigationPreferencesController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async deletePreference(
+  public deletePreference = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const preferenceId = Number(req.params.id);
 
@@ -101,5 +101,5 @@ export class IrrigationPreferencesController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }

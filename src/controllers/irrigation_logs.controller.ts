@@ -7,11 +7,11 @@ import { IrrigationLogsService } from "@services/irrigation_logs.service";
 export class IrrigationLogsController {
   public irrigationLogs = Container.get(IrrigationLogsService);
 
-  public async createLog(
+  public createLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logData: IIrrigationLogs = req.body;
 
@@ -25,13 +25,13 @@ export class IrrigationLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getLogs(
+  public getLogs = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logs: IIrrigationLogs[] = await this.irrigationLogs.findAllLogs();
 
@@ -39,13 +39,13 @@ export class IrrigationLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async getLogById(
+  public getLogById = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
 
@@ -55,13 +55,13 @@ export class IrrigationLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async updateLog(
+  public updateLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
       const logData: IIrrigationLogs = req.body;
@@ -76,13 +76,13 @@ export class IrrigationLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  public async deleteLog(
+  public deleteLog = async (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<void> => {
     try {
       const logId = Number(req.params.id);
 
@@ -97,5 +97,5 @@ export class IrrigationLogsController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }
