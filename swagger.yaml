@@ -1,0 +1,565 @@
+paths:
+  # Moisture Logs Route
+  /moisture-logs:
+    get:
+      summary: Get all moisture logs
+      tags:
+        - Moisture Logs
+      responses:
+        "200":
+          description: A list of moisture logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MoistureLogs"
+        "500":
+          description: Internal server error
+    post:
+      summary: Create a new moisture log
+      tags:
+        - Moisture Logs
+      requestBody:
+        description: Moisture log data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MoistureLogs"
+      responses:
+        "201":
+          description: Moisture log created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MoistureLogs"
+        "500":
+          description: Internal server error
+  /moisture-logs/{id}:
+    get:
+      summary: Get a moisture log by ID
+      tags:
+        - Moisture Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the moisture log
+      responses:
+        "200":
+          description: A single moisture log
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MoistureLogs"
+        "404":
+          description: Moisture log not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a moisture log by ID
+      tags:
+        - Moisture Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the moisture log
+      requestBody:
+        description: Moisture log data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MoistureLogs"
+      responses:
+        "200":
+          description: Moisture log updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MoistureLogs"
+        "404":
+          description: Moisture log not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a moisture log by ID
+      tags:
+        - Moisture Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the moisture log
+      responses:
+        "200":
+          description: Moisture log deleted successfully
+        "404":
+          description: Moisture log not found
+        "500":
+          description: Internal server error
+  # Plants Route
+  /plants:
+    get:
+      summary: Get all plants
+      tags:
+        - Plants
+      responses:
+        "200":
+          description: A list of plants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Plant"
+        "500":
+          description: Internal server error
+    post:
+      summary: Create a new plant
+      tags:
+        - Plants
+      requestBody:
+        description: Plant data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Plant"
+      responses:
+        "201":
+          description: Plant created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plant"
+        "500":
+          description: Internal server error
+  /plants/{id}:
+    get:
+      summary: Get a plant by ID
+      tags:
+        - Plants
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the plant
+      responses:
+        "200":
+          description: A single plant
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plant"
+        "404":
+          description: Plant not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a plant by ID
+      tags:
+        - Plants
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the plant
+      requestBody:
+        description: Plant data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Plant"
+      responses:
+        "200":
+          description: Plant updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plant"
+        "404":
+          description: Plant not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a plant by ID
+      tags:
+        - Plants
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the plant
+      responses:
+        "200":
+          description: Plant deleted successfully
+        "404":
+          description: Plant not found
+        "500":
+          description: Internal server error
+  # Irrigation Preferences Route
+  /irrigation-preferences:
+    get:
+      summary: Get all irrigation preferences
+      tags:
+        - Irrigation Preferences
+      responses:
+        "200":
+          description: A list of irrigation preferences
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/IrrigationPreferences"
+        "500":
+          description: Internal server error
+    post:
+      summary: Create a new irrigation preference
+      tags:
+        - Irrigation Preferences
+      requestBody:
+        description: Irrigation preference data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IrrigationPreferences"
+      responses:
+        "201":
+          description: Irrigation preference created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationPreferences"
+        "500":
+          description: Internal server error
+  /irrigation-preferences/{id}:
+    get:
+      summary: Get an irrigation preference by ID
+      tags:
+        - Irrigation Preferences
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation preference
+      responses:
+        "200":
+          description: A single irrigation preference
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationPreferences"
+        "404":
+          description: Irrigation preference not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update an irrigation preference by ID
+      tags:
+        - Irrigation Preferences
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation preference
+      requestBody:
+        description: Irrigation preference data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IrrigationPreferences"
+      responses:
+        "200":
+          description: Irrigation preference updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationPreferences"
+        "404":
+          description: Irrigation preference not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete an irrigation preference by ID
+      tags:
+        - Irrigation Preferences
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation preference
+      responses:
+        "200":
+          description: Irrigation preference deleted successfully
+        "404":
+          description: Irrigation preference not found
+        "500":
+          description: Internal server error
+  # Irrigation Logs Route
+  /irrigation-logs:
+    get:
+      summary: Get all irrigation logs
+      tags:
+        - Irrigation Logs
+      responses:
+        "200":
+          description: A list of irrigation logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/IrrigationLogs"
+        "500":
+          description: Internal server error
+    post:
+      summary: Create a new irrigation log
+      tags:
+        - Irrigation Logs
+      requestBody:
+        description: Irrigation log data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IrrigationLogs"
+      responses:
+        "201":
+          description: Irrigation log created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationLogs"
+        "500":
+          description: Internal server error
+  /irrigation-logs/{id}:
+    get:
+      summary: Get an irrigation log by ID
+      tags:
+        - Irrigation Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation log
+      responses:
+        "200":
+          description: A single irrigation log
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationLogs"
+        "404":
+          description: Irrigation log not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update an irrigation log by ID
+      tags:
+        - Irrigation Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation log
+      requestBody:
+        description: Irrigation log data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IrrigationLogs"
+      responses:
+        "200":
+          description: Irrigation log updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IrrigationLogs"
+        "404":
+          description: Irrigation log not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete an irrigation log by ID
+      tags:
+        - Irrigation Logs
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID of the irrigation log
+      responses:
+        "200":
+          description: Irrigation log deleted successfully
+        "404":
+          description: Irrigation log not found
+        "500":
+          description: Internal server error
+
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
+
+components:
+  schemas:
+    # Moisture Logs Entity
+    MoistureLogs:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        moistureLevel:
+          type: number
+          format: float
+          example: 45.5
+        recordedAt:
+          type: string
+          format: time-stamp
+          example: "2023-04-15T10:00:00Z"
+        notes:
+          type: string
+          example: "Moisture level recorded after irrigation"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+        plant:
+          $ref: "#/components/schemas/Plant"
+    # Plant Entity
+    Plant:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Tomato"
+        especies:
+          type: string
+          example: "Solanum lycopersicum"
+        description:
+          type: string
+          example: "A red, juicy fruit commonly used in salads and cooking."
+        location:
+          type: string
+          example: "Greenhouse 1"
+        plantingDate:
+          type: string
+          format: date
+          example: "2023-04-15"
+        status:
+          type: string
+          example: "active"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+    # Irrigation Preferences Entity
+    IrrigationPreferences:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        irrigationFrequency:
+          type: integer
+          example: 3
+        frequencyUnit:
+          type: string
+          example: "hours"
+        minimumSoilMoisture:
+          type: number
+          format: decimal
+          example: 45.5
+        maximumSoilMoisture:
+          type: number
+          format: decimal
+          example: 45.5
+        isActive:
+          type: boolean
+          example: true
+        notes:
+          type: string
+          example: "Irrigation preference for tomato plants"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-04-15T10:00:00Z"
+        plant:
+          $ref: "#/components/schemas/Plant"
+    # Irrigation Logs Entity
+    IrrigationLogs:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        irrigationTime:
+          type: string
+          format: time-stamp
+          example: "2023-04-15T10:00:00Z"
+        duration:
+          type: number
+          example: 2
+        notes:
+          type: string
+          example: "Irrigation log for tomato plants"
+        plant:
+          $ref: "#/components/schemas/Plant"
