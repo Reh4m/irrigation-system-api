@@ -6,6 +6,11 @@ import cors from "cors";
 import { dbConnection } from "@database";
 import { PORT } from "@config";
 
+import { IrrigationLogsRoutes } from "@routes/irrigation_logs.route";
+import { PlantRoutes } from "@routes/plant.route";
+import { IrrigationPreferencesRoutes } from "@routes/irrigation_preferences.route";
+import { MoistureLogsRoutes } from "@routes/moisture_logs.route";
+
 export class Server {
   private app: Express;
 
@@ -16,7 +21,15 @@ export class Server {
     this.database();
   }
 
-  private routes(): void {}
+  private routes(): void {
+    this.app.use("/api/irrigation-logs", new IrrigationLogsRoutes().router);
+    this.app.use(
+      "/api/irrigation-preferences",
+      new IrrigationPreferencesRoutes().router
+    );
+    this.app.use("/api/moisture-logs", new MoistureLogsRoutes().router);
+    this.app.use("/api/plant", new PlantRoutes().router);
+  }
 
   private config(): void {
     this.app.use(cors());
