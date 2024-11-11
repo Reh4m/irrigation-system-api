@@ -5,7 +5,13 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToOne,
+  OneToMany,
 } from "typeorm";
+
+import { IrrigationPreferences } from "./irrigation_preferences.entity";
+import { IrrigationLogs } from "./irrigation_logs.entity";
+import { MoistureLogs } from "./moisture_logs.entity";
 
 export type Status = "active" | "inactive" | "dormant" | "harvested";
 
@@ -41,4 +47,16 @@ export class Plant extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => IrrigationLogs, (irrigationLogs) => irrigationLogs.plant)
+  irrigationLogs: IrrigationLogs;
+
+  @OneToOne(
+    () => IrrigationPreferences,
+    (irrigationPreferences) => irrigationPreferences.plant
+  )
+  irrigationPreferences: IrrigationPreferences;
+
+  @OneToMany(() => MoistureLogs, (moistureLogs) => moistureLogs.plant)
+  moistureLogs: MoistureLogs;
 }
