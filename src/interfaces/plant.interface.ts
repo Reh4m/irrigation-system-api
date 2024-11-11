@@ -1,4 +1,4 @@
-import { Status } from "@entities/plant.entity";
+import { Status } from "../entities/plant.entity";
 
 export interface IPlant {
   id: number;

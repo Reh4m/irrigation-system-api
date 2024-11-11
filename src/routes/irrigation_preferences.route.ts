@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { IrrigationPreferencesController } from "@controllers/irrigation_preferences.controller";
+import { IrrigationPreferencesController } from "../controllers/irrigation_preferences.controller";
 
 export class IrrigationPreferencesRoutes {
   public router: Router;

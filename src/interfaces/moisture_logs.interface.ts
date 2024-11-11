@@ -1,4 +1,4 @@
-import { IPlant } from "@interfaces/plant.interface";
+import { IPlant } from "../interfaces/plant.interface";
 
 export interface IMoistureLogs {
   id: number;

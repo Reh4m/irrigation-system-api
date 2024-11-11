@@ -9,7 +9,7 @@ import {
   BaseEntity,
 } from "typeorm";
 
-import { Plant } from "@entities/plant.entity";
+import { Plant } from "../entities/plant.entity";
 
 export type FrequencyUnit = "hours" | "days";
 

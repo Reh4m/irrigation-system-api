@@ -1,5 +1,5 @@
-import { FrequencyUnit } from "@entities/irrigation_preferences.entity";
-import { IPlant } from "@interfaces/plant.interface";
+import { FrequencyUnit } from "../entities/irrigation_preferences.entity";
+import { IPlant } from "../interfaces/plant.interface";
 
 export interface IIrrigationPreferences {
   id: number;

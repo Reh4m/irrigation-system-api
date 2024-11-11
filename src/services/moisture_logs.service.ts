@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
 import { Service } from "typedi";
 
-import { MoistureLogs } from "@entities/moisture_logs.entity";
-import { IMoistureLogs } from "@interfaces/moisture_logs.interface";
+import { MoistureLogs } from "../entities/moisture_logs.entity";
+import { IMoistureLogs } from "../interfaces/moisture_logs.interface";
 
 @Service()
 export class MoistureLogsService extends Repository<MoistureLogs> {

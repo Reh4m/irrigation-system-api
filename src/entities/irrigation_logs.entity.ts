@@ -9,7 +9,7 @@ import {
   BaseEntity,
 } from "typeorm";
 
-import { Plant } from "@entities/plant.entity";
+import { Plant } from "../entities/plant.entity";
 
 @Entity()
 export class IrrigationLogs extends BaseEntity {

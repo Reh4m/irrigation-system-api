@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { PlantController } from "@controllers/plant.controller";
+import { PlantController } from "../controllers/plant.controller";
 
 export class PlantRoutes {
   public router: Router;

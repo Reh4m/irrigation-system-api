@@ -7,7 +7,7 @@ import {
   MYSQL_USER,
   MYSQL_PASSWORD,
   MYSQL_PORT,
-} from "@config";
+} from "../config";
 
 const dbConfig: DataSourceOptions = {
   type: "mysql",

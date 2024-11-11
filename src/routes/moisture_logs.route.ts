@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { MoistureLogsController } from "@controllers/moisture_logs.controller";
+import { MoistureLogsController } from "../controllers/moisture_logs.controller";
 
 export class MoistureLogsRoutes {
   public router: Router;

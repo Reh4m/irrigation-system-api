@@ -5,13 +5,13 @@ import cors from "cors";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 
-import { dbConnection } from "@database";
-import { PORT } from "@config";
+import { dbConnection } from "./database";
+import { PORT } from "./config";
 
-import { IrrigationLogsRoutes } from "@routes/irrigation_logs.route";
-import { PlantRoutes } from "@routes/plant.route";
-import { IrrigationPreferencesRoutes } from "@routes/irrigation_preferences.route";
-import { MoistureLogsRoutes } from "@routes/moisture_logs.route";
+import { IrrigationLogsRoutes } from "./routes/irrigation_logs.route";
+import { PlantRoutes } from "./routes/plant.route";
+import { IrrigationPreferencesRoutes } from "./routes/irrigation_preferences.route";
+import { MoistureLogsRoutes } from "./routes/moisture_logs.route";
 
 export class Server {
   private app: Express;

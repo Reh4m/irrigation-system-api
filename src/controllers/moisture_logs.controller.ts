@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { Container } from "typedi";
 
-import { IMoistureLogs } from "@interfaces/moisture_logs.interface";
-import { MoistureLogsService } from "@services/moisture_logs.service";
+import { IMoistureLogs } from "../interfaces/moisture_logs.interface";
+import { MoistureLogsService } from "../services/moisture_logs.service";
 
 export class MoistureLogsController {
   public moistureLogs = Container.get(MoistureLogsService);

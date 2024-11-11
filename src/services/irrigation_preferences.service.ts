@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
 import { Service } from "typedi";
 
-import { IrrigationPreferences } from "@entities/irrigation_preferences.entity";
-import { IIrrigationPreferences } from "@interfaces/irrigation_preferences.interface";
+import { IrrigationPreferences } from "../entities/irrigation_preferences.entity";
+import { IIrrigationPreferences } from "../interfaces/irrigation_preferences.interface";
 
 @Service()
 export class IrrigationPreferencesService extends Repository<IrrigationPreferences> {

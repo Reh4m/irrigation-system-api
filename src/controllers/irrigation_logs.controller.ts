@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import Container from "typedi";
 
-import { IIrrigationLogs } from "@interfaces/irrigation_logs.interface";
-import { IrrigationLogsService } from "@services/irrigation_logs.service";
+import { IIrrigationLogs } from "../interfaces/irrigation_logs.interface";
+import { IrrigationLogsService } from "../services/irrigation_logs.service";
 
 export class IrrigationLogsController {
   public irrigationLogs = Container.get(IrrigationLogsService);

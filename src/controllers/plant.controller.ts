@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { Container } from "typedi";
 
-import { Status } from "@entities/plant.entity";
-import { IPlant } from "@interfaces/plant.interface";
-import { PlantService } from "@services/plant.service";
+import { Status } from "../entities/plant.entity";
+import { IPlant } from "../interfaces/plant.interface";
+import { PlantService } from "../services/plant.service";
 
 export class PlantController {
   public plant = Container.get(PlantService);

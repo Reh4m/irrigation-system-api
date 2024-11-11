@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
 import { Service } from "typedi";
 
-import { Plant, Status } from "@entities/plant.entity";
-import { IPlant } from "@interfaces/plant.interface";
+import { Plant, Status } from "../entities/plant.entity";
+import { IPlant } from "../interfaces/plant.interface";
 
 @Service()
 export class PlantService extends Repository<Plant> {

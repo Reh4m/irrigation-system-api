@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { IrrigationLogsController } from "@controllers/irrigation_logs.controller";
+import { IrrigationLogsController } from "../controllers/irrigation_logs.controller";
 
 export class IrrigationLogsRoutes {
   public router: Router;
