@@ -517,6 +517,9 @@ components:
         irrigationFrequency:
           type: integer
           example: 3
+        irrigationTime:
+          type: time
+          example: "10:00:00"
         frequencyUnit:
           type: string
           example: "hours"
